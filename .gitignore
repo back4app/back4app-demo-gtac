@@ -33,4 +33,4 @@ build/Release
 *.~
 *.swp
 
-dist
+# dist
