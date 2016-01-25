@@ -1,0 +1,19 @@
+{
+  "name": "@back4app/back4app-demo-gtac",
+  "version": "1.0.0",
+  "description": "Repository for demo to GTAC in January 25th 2016",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/back4app/back4app-demo-gtac.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/back4app/back4app-demo-gtac/issues"
+  },
+  "homepage": "https://github.com/back4app/back4app-demo-gtac#readme"
+}
