@@ -17,9 +17,13 @@
         var vm = {};
 
         vm.projects = [];
+        vm.selectedProject = null;
 
         vm.loadProjects = loadProjects;
         vm.createProject = createProject;
+        vm.deleteProject = deleteProject;
+        vm.selectProject = selectProject;
+        vm.saveProject = saveProject;
 
         vm.loadProjects();
 
@@ -36,6 +40,38 @@
         function createProject(newProjectName) {
             projectRepository
                 .create(newProjectName)
+                .then(function () {
+                    vm.loadProjects();
+                });
+        }
+
+        function deleteProject(projectId) {
+            projectRepository
+                .del(projectId)
+                .then(function () {
+                    vm.loadProjects();
+                });
+        }
+
+        function selectProject(projectId) {
+            if(projectId) {
+                projectRepository
+                    .get(projectId)
+                    .then(function (project) {
+                        if (project.data) {
+                            vm.selectedProject = project.data;
+                        } else {
+                            vm.selectedProject = null;
+                        }
+                    });
+            } else {
+                vm.selectedProject = null;
+            }
+        }
+
+        function saveProject(project) {
+            projectRepository
+                .put(project)
                 .then(function () {
                     vm.loadProjects();
                 });
