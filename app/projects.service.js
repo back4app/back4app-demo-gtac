@@ -10,9 +10,7 @@
         .factory('projectsService', projectsService);
 
     projectsService.$inject = [
-        'projectRepository',
-        'issueRepository',
-        'bugRepository'
+        'projectRepository'
     ];
 
     function projectsService(projectRepository) {

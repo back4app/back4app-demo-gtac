@@ -13,7 +13,9 @@
         .service('projectRepository', projectRepository);
 
     projectRepository.$inject = [
-        '$http'
+        '$http',
+        'issueRepository',
+        'bugRepository'
     ];
 
     function projectRepository($http) {
