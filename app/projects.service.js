@@ -16,6 +16,29 @@
     function projectsService(projectRepository) {
         var vm = {};
 
+        vm.projects = [];
+
+        vm.loadProjects = loadProjects;
+        vm.createProject = createProject;
+
+        vm.loadProjects();
+
         return vm;
+
+        function loadProjects() {
+            projectRepository
+                .list()
+                .then(function (projects) {
+                    vm.projects = projects.data.results;
+                });
+        }
+
+        function createProject(newProjectName) {
+            projectRepository
+                .create(newProjectName)
+                .then(function () {
+                    vm.loadProjects();
+                });
+        }
     }
 })();

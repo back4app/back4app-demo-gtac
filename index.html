@@ -7,7 +7,39 @@
 
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
-<body>
+<body data-ng-app="app" data-ng-controller="projectsController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Projects - back{4}app demo</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <button class="btn btn-success" data-ng-click="vc.createProject()">
+                New project
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="project in vm.projects">
+                    <td>{{project.title}}</td>
+                    <td>{{project.description}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/angular/angular.min.js"></script>
